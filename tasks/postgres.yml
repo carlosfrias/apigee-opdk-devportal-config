@@ -1,0 +1,10 @@
+---
+- name: Obtain pgmaster IP for DC 2, if not provided
+  set_fact:
+    dp_pg_ip: "{{ hostvars[groups['dp-db'][0]][interface_name].ipv4.address }}"
+
+- name: Set pgmaster_ip for DC 2, in cache, if defined
+  cache:
+    key: dp_pg_ip
+    value: '{{ dp_pg_ip }}'
+  when: dp_pg_ip is defined
