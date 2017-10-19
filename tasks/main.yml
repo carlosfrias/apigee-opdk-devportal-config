@@ -13,6 +13,11 @@
 
 - import_tasks: postgres.yml
 
+- name: Construct name of dev portal response file
+  cache:
+    key: 'opdk_portal_config_file'
+    value: '{{ opdk_installer_path }}/edge-devportal-response-{{ opdk_version }}-{{ region }}.conf'
+
 - name: Construct the dev portal silent-install file
   template:
     src: 'devportal-silent-install.conf.j2'
