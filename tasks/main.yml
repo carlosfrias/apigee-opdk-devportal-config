@@ -1,5 +1,10 @@
 ---
 # tasks file for apigee-opdk-devportal-config
+- name: Construct name of dev portal response file
+  cache:
+    key: 'opdk_portal_config_file'
+    value: '{{ opdk_installer_path }}/edge-devportal-response-{{ opdk_version }}-{{ region }}.conf'
+
 - name: Remove the old dev portal db response file
   file:
     path: "{{ opdk_portal_config_file }}"
@@ -12,11 +17,6 @@
     state: directory
 
 - import_tasks: postgres.yml
-
-- name: Construct name of dev portal response file
-  cache:
-    key: 'opdk_portal_config_file'
-    value: '{{ opdk_installer_path }}/edge-devportal-response-{{ opdk_version }}-{{ region }}.conf'
 
 - name: Construct the dev portal silent-install file
   template:
