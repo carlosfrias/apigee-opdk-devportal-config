@@ -1,9 +1,9 @@
 HOSTIP="$(hostname -i)"
 PG_NAME="devportal"
 PG_USER="{{ devportal_pg_user | default(pg_user) }}"
-PG_PWD={{ devportal_pg_pass | default(pg_pass) }}
+PG_PWD="{{ devportal_pg_pass | default(pg_pass) }}"
 
-PG_HOST={{ dp_pg_ip }}
+PG_HOST="{{ dp_pg_ip }}"
 DEFAULT_DB="postgres"
 
 DRUPAL_PG_USER="{{ drupal_pg_user }}"
