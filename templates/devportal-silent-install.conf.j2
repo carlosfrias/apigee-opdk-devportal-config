@@ -20,8 +20,8 @@ MGMT_URL="http://{{ local_mgmt_ip }}:8080/v1"
 DEVADMIN_USER="{{ dp_devadmin_user }}"
 DEVADMIN_PWD="{{ dp_devadmin_pwd }}"
 
-SMTPHOST={{ opdk_smtp_host }}
-SMTPSSL={{ opdk_smtp_ssl }}
-SMTPPORT={{ opdk_smtp_port }}
-SMTPUSER={{ opdk_smtp_user | default(dp_devadmin_user) }}
-SMTPPASSWORD={{ opdk_smtp_password | default(dp_devadmin_pwd) }}
+SMTPHOST="{{ opdk_smtp_host }}"
+SMTPSSL="{{ opdk_smtp_ssl }}"
+SMTPPORT="{{ opdk_smtp_port }}"
+SMTPUSER="{{ opdk_smtp_user | default(dp_devadmin_user) }}"
+SMTPPASSWORD="{{ opdk_smtp_password | default(dp_devadmin_pwd) }}"
