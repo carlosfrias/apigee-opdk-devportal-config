@@ -12,7 +12,7 @@ DRUPAL_PG_PASS={{ drupal_pg_pass }}
 DEVPORTAL_ADMIN_FIRSTNAME={{ dp_admin_firstname }}
 DEVPORTAL_ADMIN_LASTNAME={{ dp_admin_lastname }}
 DEVPORTAL_ADMIN_USERNAME={{ dp_admin_username }}
-DEVPORTAL_ADMIN_PWD={{ dp_admin_pwd }}
+DEVPORTAL_ADMIN_PWD="{{ dp_admin_pwd }}"
 DEVPORTAL_ADMIN_EMAIL={{ dp_admin_email }}
 
 EDGE_ORG={{ org_name }}
@@ -24,4 +24,4 @@ SMTPHOST={{ opdk_smtp_host }}
 SMTPSSL="{{ opdk_smtp_ssl }}"
 SMTPPORT={{ opdk_smtp_port }}
 SMTPUSER={{ opdk_smtp_user | default(dp_devadmin_user) }}
-SMTPPASSWORD={{ opdk_smtp_password | default(dp_devadmin_pwd) }}
+SMTPPASSWORD="{{ opdk_smtp_password | default(dp_devadmin_pwd) }}"
