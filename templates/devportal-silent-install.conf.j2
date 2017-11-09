@@ -24,4 +24,4 @@ SMTPHOST={{ opdk_smtp_host }}
 SMTPSSL={{ opdk_smtp_ssl }}
 SMTPPORT={{ opdk_smtp_port }}
 SMTPUSER={{ opdk_smtp_user | default(dp_devadmin_user) }}
-SMTPPASSWORD={{ opdk_smtp_password | default(dp_devadmin_pwd) }}
+SMTPPASSWORD='{{ opdk_smtp_password | default(dp_devadmin_pwd) }}'
