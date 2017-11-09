@@ -3,7 +3,7 @@
 - name: Drupal Admin and Postgres admin cannot be the same username
   fail:
     msg: "Drupal admin and postgres admin cannot be the same user"
-  when: (drupal_pg_user == pg_user) or (drupal_pg_user == devportal_pg_user)
+  when: (drupal_pg_user == pg_user) or (drupal_pg_user == dp_devadmin_user)
 
 - name: Construct name of dev portal response file
   cache:
