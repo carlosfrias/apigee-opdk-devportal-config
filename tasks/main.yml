@@ -7,20 +7,20 @@
 
 - name: Construct name of dev portal response file
   cache:
-    key: 'opdk_db_portal_config_file'
+    key: 'opdk_portal_db_config_file'
     value: '{{ opdk_installer_path }}/edge-devportal-ui-response-{{ opdk_version }}-{{ region }}.conf'
 
 - name: Remove the old dev portal db response file
   become: yes
   file:
-    path: "{{ opdk_db_portal_config_file }}"
+    path: "{{ opdk_portal_db_config_file }}"
     state: absent
   when: manual_devportal_response_file is not defined or not manual_devportal_response_file
 
 - name: Ensure that a folder exists for the file to be generated
   become: yes
   file:
-    path: "{{ opdk_db_portal_config_file | dirname }}"
+    path: "{{ opdk_portal_db_config_file | dirname }}"
     state: directory
 
 - import_tasks: postgres.yml
@@ -29,7 +29,7 @@
   become: yes
   template:
     src: 'devportal-silent-install.conf.j2'
-    dest: "{{ opdk_db_portal_config_file }}"
+    dest: "{{ opdk_portal_db_config_file }}"
     force: yes
     owner: '{{ opdk_user_name }}'
     group: '{{ opdk_group_name }}'
@@ -40,7 +40,7 @@
   become: yes
   copy:
     src: "{{ manual_devportal_response_file }}"
-    dest: "{{ opdk_db_portal_config_file }}"
+    dest: "{{ opdk_portal_db_config_file }}"
     owner: '{{ opdk_user_name }}'
     group: '{{ opdk_group_name }}'
     mode: 0655
