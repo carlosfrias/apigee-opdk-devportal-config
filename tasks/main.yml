@@ -5,11 +5,6 @@
     msg: "Drupal admin and postgres admin cannot be the same user"
   when: (drupal_pg_user == pg_user) or (drupal_pg_user == dp_devadmin_user)
 
-- name: Construct name of dev portal response file
-  cache:
-    key: 'opdk_portal_config_file'
-    value: '{{ opdk_installer_path }}/edge-devportal-ui-response-{{ opdk_version }}-{{ region }}.conf'
-
 - name: Remove the old dev portal db response file
   become: yes
   file:
