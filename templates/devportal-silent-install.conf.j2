@@ -1,7 +1,7 @@
 HOSTIP=$(hostname -i)
 PG_NAME=devportal
 PG_USER={{ dp_pg_user }}
-PG_PWD='{{ dp_pg_pass }}'
+PG_PWD='{{ dp_pg_pass | default(pg_pass) }}'
 
 PG_HOST={{ dp_pg_ip }}
 DEFAULT_DB=postgres
