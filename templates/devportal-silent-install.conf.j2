@@ -1,6 +1,6 @@
 HOSTIP=$(hostname -i)
 PG_NAME=devportal
-PG_USER={{ dp_pg_user }}
+PG_USER=apigee
 PG_PWD='{{ dp_pg_pass | default(pg_pass) }}'
 
 PG_HOST={{ dp_pg_ip }}
@@ -19,6 +19,7 @@ EDGE_ORG={{ org_name }}
 MGMT_URL=http://{{ local_mgmt_ip }}:8080/v1
 DEVADMIN_USER={{ dp_devadmin_user }}
 DEVADMIN_PWD='{{ dp_devadmin_pwd }}'
+PHP_FPM_PORT={{ dp_php_fpm_port | default('8888') }}
 
 SMTPHOST={{ opdk_smtp_host }}
 SMTPSSL={{ opdk_smtp_ssl }}
