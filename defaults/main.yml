@@ -1,2 +1,4 @@
 ---
 # defaults file for apigee-opdk-devportal-config
+opdk_installer_path: /tmp/edge
+opdk_portal_config_file: '{{ opdk_installer_path }}/edge-devportal-response-{{ opdk_version }}.conf'
