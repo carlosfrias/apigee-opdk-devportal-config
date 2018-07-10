@@ -2,3 +2,11 @@
 # defaults file for apigee-opdk-devportal-config
 opdk_installer_path: /tmp/edge
 opdk_portal_config_file: '{{ opdk_installer_path }}/edge-devportal-response-{{ opdk_version }}.conf'
+
+# SMTP settings for Edge Configuration
+opdk_smtp_skip: 'y'
+opdk_smtp_host: 'smtp.gmail.com'
+opdk_smtp_port: '25'
+opdk_smtp_user: ''
+opdk_smtp_password: ''
+opdk_smtp_ssl: 'n'
