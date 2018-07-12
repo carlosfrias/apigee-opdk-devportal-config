@@ -1,31 +1,5 @@
 ---
 # tasks file for apigee-opdk-devportal-config
-- name: Remove pre-exisiting PHP packages
-  tags: ['os', 'php']
-  ignore_errors: yes
-  yum:
-    name: "{{ item }}"
-    state: absent
-  with_items: "{{ php_packages }}"
-
-- name: Drupal Admin and Postgres admin cannot be the same username
-  fail:
-    msg: "Drupal admin and postgres admin cannot be the same user"
-  when: (drupal_pg_user == pg_user) or (drupal_pg_user == dp_devadmin_user)
-
-- name: Remove the old dev portal db response file
-  become: yes
-  file:
-    path: "{{ opdk_portal_config_file }}"
-    state: absent
-  when: manual_devportal_response_file is not defined or not manual_devportal_response_file
-
-- name: Ensure that a folder exists for the file to be generated
-  become: yes
-  file:
-    path: "{{ opdk_portal_config_file | dirname }}"
-    state: directory
-
 - name: Determine interface name
   include_tasks: interface.yml
 
@@ -56,6 +30,32 @@
       - opdk_smtp_port is defined
       - opdk_smtp_user is defined
       - opdk_smtp_password is defined
+
+- name: Remove pre-exisiting PHP packages
+  tags: ['os', 'php']
+  ignore_errors: yes
+  yum:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ php_packages }}"
+
+- name: Drupal Admin and Postgres admin cannot be the same username
+  fail:
+    msg: "Drupal admin and postgres admin cannot be the same user"
+  when: (dp_drupal_pg_user == pg_user) or (dp_drupal_pg_user == dp_devadmin_user)
+
+- name: Remove the old dev portal db response file
+  become: yes
+  file:
+    path: "{{ opdk_portal_config_file }}"
+    state: absent
+  when: manual_devportal_response_file is not defined or not manual_devportal_response_file
+
+- name: Ensure that a folder exists for the file to be generated
+  become: yes
+  file:
+    path: "{{ opdk_portal_config_file | dirname }}"
+    state: directory
 
 - name: Construct the dev portal silent-install file
   become: yes
