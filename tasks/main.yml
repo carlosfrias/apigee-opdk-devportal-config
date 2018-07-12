@@ -26,6 +26,9 @@
     path: "{{ opdk_portal_config_file | dirname }}"
     state: directory
 
+- name: Determine interface name
+  include_tasks: interface.yml
+
 - import_tasks: postgres.yml
 
 - name: Construct the dev portal silent-install file
