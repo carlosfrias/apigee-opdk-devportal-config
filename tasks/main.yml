@@ -3,6 +3,9 @@
 - name: Determine interface name
   include_tasks: interface.yml
 
+- name: Regional Management Server IP Address
+  include_tasks: local_mgmt_ip.yml
+
 - name: Configure postgres
   import_tasks: postgres.yml
 
