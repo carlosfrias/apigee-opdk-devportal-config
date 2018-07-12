@@ -1,13 +1,13 @@
 HOSTIP=$(hostname -i)
-PG_NAME=devportal
-PG_USER=apigee
-PG_PWD='{{ dp_pg_pass | default(pg_pass) }}'
+PG_NAME={{ dp_pg_name }}
+PG_USER={{ dp_pg_user }}
+PG_PWD='{{ dp_pg_pass }}'
 
-PG_HOST={{ dp_pg_ip }}
-DEFAULT_DB=postgres
+PG_HOST={{ dp_pg_host }}
+DEFAULT_DB={{ dp_pg_database }}
 
-DRUPAL_PG_USER={{ drupal_pg_user }}
-DRUPAL_PG_PASS='{{ drupal_pg_pass }}'
+DRUPAL_PG_USER={{ dp_drupal_pg_user }}
+DRUPAL_PG_PASS='{{ dp_drupal_pg_pass }}'
 
 DEVPORTAL_ADMIN_FIRSTNAME={{ dp_admin_firstname }}
 DEVPORTAL_ADMIN_LASTNAME={{ dp_admin_lastname }}
@@ -19,10 +19,10 @@ EDGE_ORG={{ org_name }}
 MGMT_URL=http://{{ local_mgmt_ip }}:8080/v1
 DEVADMIN_USER={{ dp_devadmin_user }}
 DEVADMIN_PWD='{{ dp_devadmin_pwd }}'
-PHP_FPM_PORT={{ dp_php_fpm_port | default('8888') }}
+PHP_FPM_PORT={{ dp_php_fpm_port }}
 
 SMTPHOST={{ opdk_smtp_host }}
 SMTPSSL={{ opdk_smtp_ssl }}
 SMTPPORT={{ opdk_smtp_port }}
-SMTPUSER={{ opdk_smtp_user | default(dp_devadmin_user) }}
-SMTPPASSWORD='{{ opdk_smtp_password | default(dp_devadmin_pwd) }}'
+SMTPUSER={{ opdk_smtp_user }}
+SMTPPASSWORD='{{ opdk_smtp_password }}'

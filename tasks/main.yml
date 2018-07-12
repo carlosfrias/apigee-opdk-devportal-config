@@ -29,7 +29,33 @@
 - name: Determine interface name
   include_tasks: interface.yml
 
-- import_tasks: postgres.yml
+- name: Configure postgres
+  import_tasks: postgres.yml
+
+- name: Assert that Devportal attributes are available
+  assert:
+    that:
+      - dp_pg_name is defined
+      - dp_pg_user is defined
+      - dp_pg_pass is defined
+      - dp_pg_host is defined
+      - dp_pg_database is defined
+      - dp_drupal_pg_user is defined
+      - dp_drupal_pg_pass is defined
+      - dp_admin_firstname is defined
+      - dp_admin_lastname is defined
+      - dp_admin_pwd is defined
+      - dp_admin_email is defined
+      - org_name is defined
+      - local_mgmt_ip is defined
+      - dp_devadmin_user is defined
+      - dp_devadmin_pwd is defined
+      - dp_php_fpm_port is defined
+      - opdk_smtp_host is defined
+      - opdk_smtp_ssl is defined
+      - opdk_smtp_port is defined
+      - opdk_smtp_user is defined
+      - opdk_smtp_password is defined
 
 - name: Construct the dev portal silent-install file
   become: yes
