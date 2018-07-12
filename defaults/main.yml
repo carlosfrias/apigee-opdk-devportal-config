@@ -29,6 +29,7 @@ dp_pg_pass: "{{ pg_pass | default('postgres') }}"
 dp_pg_database: postgres
 org_name: opdk
 dp_php_fpm_port: 8888
+ms_ext_mgmt_port: 8080
 
 # SMTP settings for Edge Configuration
 opdk_smtp_host: 'smtp.gmail.com'
