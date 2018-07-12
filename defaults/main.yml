@@ -10,3 +10,16 @@ opdk_smtp_port: '25'
 opdk_smtp_user: ''
 opdk_smtp_password: ''
 opdk_smtp_ssl: 'n'
+php_packages:
+- php
+- php-cli
+- php-common
+- php-gd
+- php-mbstring
+- php-mysql
+- php-pdo
+- php-pear
+- php-pecl-apc
+- php-process
+- php-xml
+

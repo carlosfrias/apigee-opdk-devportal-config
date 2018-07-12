@@ -1,5 +1,13 @@
 ---
 # tasks file for apigee-opdk-devportal-config
+- name: Remove pre-exisiting PHP packages
+  tags: ['os', 'php']
+  ignore_errors: yes
+  yum:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ php_packages }}"
+
 - name: Drupal Admin and Postgres admin cannot be the same username
   fail:
     msg: "Drupal admin and postgres admin cannot be the same user"
