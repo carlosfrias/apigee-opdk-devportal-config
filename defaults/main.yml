@@ -30,9 +30,3 @@ dp_pg_database: postgres
 org_name: opdk
 dp_php_fpm_port: 8888
 ms_port: 8080
-
-# SMTP settings for Edge Configuration
-opdk_smtp_host: 'smtp.gmail.com'
-opdk_smtp_port: '25'
-opdk_smtp_ssl: 'n'
-
