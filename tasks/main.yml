@@ -33,15 +33,14 @@
       - opdk_smtp_port is defined
       - opdk_smtp_user is defined
       - opdk_smtp_password is defined
-      - ms_ext_mgmt_port is defined
+      - ms_port is defined
 
 - name: Remove pre-exisiting PHP packages
   tags: ['os', 'php']
   ignore_errors: yes
   yum:
-    name: "{{ item }}"
+    name: "{{ php_packages }}"
     state: absent
-  with_items: "{{ php_packages }}"
 
 - name: Drupal Admin and Postgres admin cannot be the same username
   fail:
