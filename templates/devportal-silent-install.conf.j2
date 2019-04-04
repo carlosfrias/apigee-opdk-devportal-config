@@ -24,5 +24,9 @@ PHP_FPM_PORT={{ dp_php_fpm_port }}
 SMTPHOST={{ opdk_smtp_host }}
 SMTPSSL={{ opdk_smtp_ssl }}
 SMTPPORT={{ opdk_smtp_port }}
-SMTPUSER={{ opdk_smtp_user }}
-SMTPPASSWORD='{{ opdk_smtp_password }}'
+{% if opdk_smtp_user is defined and opdk_smtp_user | trim | length > 0 %}
+    SMTPUSER={{ opdk_smtp_user }}
+{% endif %}
+{% if opdk_smtp_password is defined and opdk_smtp_password | trim | length > 0 %}
+    SMTPPASSWORD="{{ opdk_smtp_password }}"
+{% endif %}
