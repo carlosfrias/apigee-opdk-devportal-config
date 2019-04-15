@@ -25,8 +25,8 @@ SMTPHOST={{ opdk_smtp_host }}
 SMTPSSL={{ opdk_smtp_ssl }}
 SMTPPORT={{ opdk_smtp_port }}
 {% if opdk_smtp_user is defined and opdk_smtp_user | trim | length > 0 %}
-    SMTPUSER={{ opdk_smtp_user }}
+SMTPUSER={{ opdk_smtp_user }}
 {% endif %}
 {% if opdk_smtp_password is defined and opdk_smtp_password | trim | length > 0 %}
-    SMTPPASSWORD="{{ opdk_smtp_password }}"
+SMTPPASSWORD="{{ opdk_smtp_password }}"
 {% endif %}
